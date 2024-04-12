@@ -18,4 +18,20 @@ pub mod solana_dex {
         handler_add_liquidity(ctx, amount)?;
         Ok(())
     }
+
+    pub fn swap_token_to_sol<'info>(
+        ctx: Context<'_, '_, '_, 'info, SwapToken<'info>>,
+        amount: u64
+    ) -> Result<()> {
+        handler_swap_token_to_sol(ctx, amount)?;
+        Ok(())
+    }
+
+    pub fn swap_sol_to_token<'info>(
+        ctx: Context<'_, '_, '_, 'info, SwapToken<'info>>,
+        amount: u64
+    ) -> Result<()> {
+        handler_swap_sol_to_token(ctx, amount)?;
+        Ok(())
+    }
 }
